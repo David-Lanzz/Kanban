@@ -1,8 +1,122 @@
-
-h1 {
-  color: red;
-}
-
-body {
-  background-color: bisque;
-}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  h3,
+  h4 {
+    margin: 0.5rem 0;
+  }
+  
+  .x {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    position: absolute;
+    right: 19rem;
+    top: 1rem;
+    cursor: pointer;
+  }
+  
+  div div {
+    height: 0.255rem;
+    width: 1.5rem;
+    background-color: #333;
+  }
+  
+  .topx {
+    transform: rotate(45deg) translateY(0.4rem);
+  }
+  
+  .bottomx {
+    transform: rotate(-45deg) translateY(-0.4rem);
+  }
+  
+  .popup-window {
+    text-align: center;
+    z-index: 1;
+    margin: 0 20%;
+    padding: 2rem 10%;
+    min-height: 20rem;
+    border: solid 1px #333;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  .popup-meal-image {
+    height: 13rem;
+    width: 100%;
+    border: solid 1px #333;
+    margin: 0 auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .additional-information {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .additional-information li {
+    display: flex;
+  }
+  
+  .right {
+    margin-right: auto;
+  }
+  
+  .comments-section,
+  .comments-section li {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+  
+  .comments-section {
+    flex-direction: column;
+  }
+  
+  .add-comment {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  textarea {
+    width: 20rem;
+    height: 6rem;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .popup-window {
+      padding: 1rem;
+      margin: 2rem;
+    }
+  
+    .additional-information li {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+  
+    .right {
+      margin: 0;
+    }
+  
+    .comments-section,
+    .comments-section li {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .popup-meal-image {
+      width: 92%;
+    }
+    .x {
+      right: 1.8rem;
+    }
+  }
