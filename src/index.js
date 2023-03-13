@@ -1,5 +1,6 @@
 import './style.css';
-const popupWindow = document.querySelector('#popup-window')
+
+const popupWindow = document.querySelector('#popup-window');
 popupWindow.innerHTML = `<div class="x">
 <div class="topx"></div>
 <div class="bottomx"></div>
@@ -26,4 +27,4 @@ popupWindow.innerHTML = `<div class="x">
 <li><textarea name="new comment" id="new-comment" cols="30" rows="10" placeholder="your insights"></textarea></li>
 <li><button id="comment-btn">Comment</button></li>
 </ul>
-</section>`
+</section>`;
