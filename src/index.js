@@ -1,5 +1,5 @@
 import './style.css';
-//popup-window
+// popup-window
 const popupWindow = document.querySelector('#popup-window');
 popupWindow.innerHTML = `<div class="x">
 <div class="topx"></div>
