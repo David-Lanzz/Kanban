@@ -1,6 +1,22 @@
 import './style.css';
 const popupWindow = document.querySelector('#popup-window')
-popupWindow.innerHTML = `<div class="x">
+
+
+let array = []
+const getInvolvementApi = async()=>{
+    const apiUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/CpnE9NNUbu1zv9OE8RDw/likes`
+    const getUrl = fetch(apiUrl,{
+    method: 'GET',
+    })
+    const getItems = await getUrl
+    const test = await getItems.json()
+   return test
+    }
+  const populatePopup = async()=> {
+    const arrayItem = await getInvolvementApi()
+    let output = ''
+    arrayItem.forEach(element => {
+      output =  `<div class="x">
 <div class="topx"></div>
 <div class="bottomx"></div>
 </div>
@@ -12,7 +28,7 @@ popupWindow.innerHTML = `<div class="x">
 <ul class="additional-information">
 <li><div class="right">Fuel:</div><div>Length:</div></li>
 <li><div class="right">Weight:</div><div>Power:</div></li>
-</ul><h4>Comments (<span id="number-of-comments">
+</ul><h4>Comments (<span id="number-of-comments">${element.likes + element.item_id}
 
 </span>)</h4>
 <ul class="comments-section">
@@ -27,3 +43,7 @@ popupWindow.innerHTML = `<div class="x">
 <li><button id="comment-btn">Comment</button></li>
 </ul>
 </section>`
+    });
+    popupWindow.innerHTML = output
+  }
+  populatePopup()
