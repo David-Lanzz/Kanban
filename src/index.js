@@ -33,8 +33,7 @@ const populateDom = async () => {
 };
 
 const fillDom = async () => {
-    mealContainer.innerHTML = await populateDom();
-  };
-  
+  mealContainer.innerHTML = await populateDom();
+};
 
 fillDom();
