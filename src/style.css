@@ -52,8 +52,11 @@ li {
   width: 100%;
   border: solid 1px #333;
   margin: 0 auto;
-  background-size: cover;
-  background-repeat: no-repeat;
+}
+
+.popup-meal-image img {
+  width: 100%;
+  height: 100%;
 }
 
 .additional-information {
@@ -225,8 +228,7 @@ nav {
 
   .dish_container {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     margin-top: 5%;
     padding-right: 50px;

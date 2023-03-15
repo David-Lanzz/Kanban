@@ -4,7 +4,7 @@
 export default class classes {
     static popupWindow = document.querySelector('#popup-window')
 
-  static baseurl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/'
+  static baseurl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Nvwt41EYsSFQ5YyQ8wBC'
 
     static getInvolvementApi = async () => {
       const apiUrl = `${this.baseurl}CpnE9NNUbu1zv9OE8RDw/likes`;
@@ -27,9 +27,9 @@ export default class classes {
         return id;
       }
 
-         static commentSection = async (element, e) => {
+         static commentSection = async (e) => {
            await this.populatePopup(e);
-           return element;
+           return document.querySelector('#comments-section');
          }
 
     static populatePopup = async (e) => {
@@ -38,14 +38,15 @@ export default class classes {
       const comments = await this.collectId(e);
       const filteredComments = comments.filter((element) => element.comment !== '');
       arrayItem.forEach((element) => {
-        filteredComments.forEach((comment) => {
+        filteredComments.forEach(() => {
           if (element.idMeal === e) {
             this.popupWindow.id = e;
-            output = `<div class="x">
+            output = `<div class="x" id="${e}">
   <div class="topx"></div>
   <div class="bottomx"></div>
   </div>
-  <section class="popup-meal-image" style='background: url('${element.strMealThumb}')>
+  <section class="popup-meal-image">
+  <img src="${element.strMealThumb}" alt="image"> 
   </section>
   <section class="popup-info">
   <h3>${element.strMeal}</h3>
@@ -68,18 +69,18 @@ export default class classes {
           }
         });
       });
-      this.popupWindow.innerHTML = output;
-      this.commentSection(await document.querySelector('#comments-section'), await e);
+      return output;
     }
 
   static getComments = async (e) => {
-    const commentSection = await this.commentSection(await document.querySelector('#comments-section'), await e);
+    const commentSection = await this.commentSection(e);
     const comments = await this.collectId(e);
     const filteredComments = comments.filter((element) => element.comment !== '');
     let output = '';
     filteredComments.forEach((element) => {
       output += `<li><span id="date">${element.creation_date}</span><span id="name">${element.username}</span><span id="comment">${element.comment}</span></li>`;
     });
+    commentSection.innerHTML = output;
   }
 
   static mealContainer = document.querySelector('#dish_container');
@@ -108,7 +109,7 @@ export default class classes {
     let getToApi = '';
     for (let i = 0; i < array.length; i += 1) {
       setInterval(() => {
-        getToApi = fetch(`${this.baseurl}Nvwt41EYsSFQ5YyQ8wBC/likes`, {
+        getToApi = fetch(`${this.baseurl}/likes`, {
           method: 'POST',
           headers: {
             'content-type': 'application/json',
@@ -123,30 +124,9 @@ export default class classes {
     }
   }
 
-   static postComments = async () => {
-     const array = await this.getMealsId();
-     let getToApi = '';
-     for (let i = 0; i < array.length; i += 1) {
-       setInterval(() => {
-         getToApi = fetch(`${this.baseurl}Nvwt41EYsSFQ5YyQ8wBC/comments`, {
-           method: 'POST',
-           headers: {
-             'content-type': 'application/json',
-           },
-           body: JSON.stringify({
-             item_id: `${array[i]}`,
-             username: '',
-             comment: '',
-           }),
-         });
-         getToApi.then((res) => (res.text()));
-       }, 100);
-     }
-   }
-
   static collectId = async (e) => {
     const test = await this.popupId(e);
-    const apiUrl = `${this.baseurl}Nvwt41EYsSFQ5YyQ8wBC/comments?item_id=${test}`;
+    const apiUrl = `${this.baseurl}/comments?item_id=${test}`;
     const getToApi = await fetch(apiUrl, {
       method: 'GET',
     });
@@ -155,8 +135,25 @@ export default class classes {
     return likesArr;
   }
 
+  static addCommentToApi = async (e) => {
+    const test = await this.popupId(e);
+    const apiUrl = `${this.baseurl}/comments`;
+    const getToApi = await fetch(apiUrl, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        item_id: `${test}`,
+        username: `${document.querySelector('#nameInput').value}`,
+        comment: `${document.querySelector('#new-comment').value}`,
+      }),
+    });
+    const test2 = getToApi;
+    const likesArr = await test2.text();
+    return likesArr;
+  }
+
   static getLikes = async () => {
-    const apiUrl = `${this.baseurl}Nvwt41EYsSFQ5YyQ8wBC/likes`;
+    const apiUrl = `${this.baseurl}/likes`;
     const getToApi = await fetch(apiUrl, {
       method: 'GET',
     });
@@ -195,8 +192,4 @@ export default class classes {
   static fillDom = async () => {
     this.mealContainer.innerHTML = await this.populateDom();
   };
-
-  static addComment = (funct) => {
-
-  }
 }
