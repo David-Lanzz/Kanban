@@ -1,6 +1,6 @@
 import './style.css';
 
-import classes from '../../Leaderboard-Project/modules/class.js';
+import classes from './modules/classes.js';
 
 classes.fillDom();
 
