@@ -9,7 +9,7 @@ window.addEventListener('click', async (e) => {
     classes.popupId(e.target.parentNode.id);
     classes.populatePopup(e.target.parentNode.id);
     classes.collectId(e.target.parentNode.id);
-    classes.getComments(e.target.parentNode.id)
+    classes.getComments(e.target.parentNode.id);
   }
   if (e.target.id === 'comment-btn') {
     classes.populatePopup(e.target.parentNode.parentNode.parentNode.parentNode.id);
