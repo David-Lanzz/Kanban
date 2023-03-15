@@ -16,4 +16,9 @@ window.addEventListener('click', async (e) => {
     classes.collectId(e.target.parentNode.parentNode.parentNode.parentNode.id);
     classes.getComments(e.target.parentNode.parentNode.parentNode.parentNode.id);
   }
+  if (e.target.id === 'love') {
+    await classes.addLikes(e.target.parentNode.parentNode.id);
+    classes.getLikes();
+    classes.fillDom();
+  }
 });
