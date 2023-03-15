@@ -1,9 +1,9 @@
 // all methods
 export default class classes {
     static popupWindow = document.querySelector('#popup-window')
-  
+  static baseurl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/`
     static getInvolvementApi = async()=>{
-      const apiUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/CpnE9NNUbu1zv9OE8RDw/likes`
+      const apiUrl = `${this.baseurl}CpnE9NNUbu1zv9OE8RDw/likes`
       const getUrl = fetch(apiUrl,{
       method: 'GET',
       })
@@ -21,12 +21,16 @@ export default class classes {
         })
        return id
         }
+         static commentSection = async(element,e)=> {
+           await this.populatePopup(e)
+           console.log(element)
+ return element
+         }
     static populatePopup = async(e)=> {
       const arrayItem = await this.getFoodItems()
       let output = ''
       const comments = await this.collectId(e)
       const filteredComments = comments.filter(element => element.comment !== '')
-      console.log(filteredComments)
       arrayItem.forEach((element) => {
         filteredComments.forEach((comment)=> {
           if(element.idMeal === e){
@@ -45,10 +49,8 @@ export default class classes {
   </ul><h4>Comments (<span id="number-of-comments">${filteredComments.length}
   
   </span>)</h4>
-  <ul class="comments-section">
-  <li></li>
-  <li><span id="date">Date</span><span id="name">Name</span><span id="comment">Comment</span></li>
-  <li><span id="date">Date</span><span id="name">Name</span><span id="comment">Comment</span></li>
+  <ul class="comments-section" id='comments-section'>
+  
   </ul>
   <h4>Add a comment</h4>
   <ul class="add-comment">
@@ -59,11 +61,19 @@ export default class classes {
   </section>`
           }
         })
-         
       });
       this.popupWindow.innerHTML = output
+    this.commentSection(await document.querySelector('#comments-section'),e)
     }
-  
+  static getComments = async(e)=> {
+ const commentSection = await this.commentSection(await document.querySelector('#comments-section'),e)
+const comments = await this.collectId(e)
+const filteredComments = comments.filter(element => element.comment !== '')
+let output = ''
+filteredComments.forEach(element=> {
+output += `<li><span id="date">${element.creation_date}</span><span id="name">${element.username}</span><span id="comment">${element.comment}</span></li>`
+})
+  }
   static mealContainer = document.querySelector('#dish_container');
   static getFoodItems = async () => {
     const Url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef';
@@ -87,7 +97,7 @@ export default class classes {
     let getToApi = ''
    for(let i = 0;i < array.length;i+=1)
     setInterval(()=> {
-      getToApi = fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Nvwt41EYsSFQ5YyQ8wBC/likes',{
+      getToApi = fetch(`${this.baseurl}Nvwt41EYsSFQ5YyQ8wBC/likes`,{
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -106,7 +116,7 @@ export default class classes {
     let getToApi = ''
    for(let i = 0;i < array.length;i+=1)
     setInterval(()=> {
-      getToApi = fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Nvwt41EYsSFQ5YyQ8wBC/comments',{
+      getToApi = fetch(`${this.baseurl}Nvwt41EYsSFQ5YyQ8wBC/comments`,{
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -122,8 +132,7 @@ export default class classes {
   }
   static collectId = async(e)=> {
     const test = await this.popupId(e)
-    console.log(test)
-     const apiUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Nvwt41EYsSFQ5YyQ8wBC/comments?item_id=${test}`
+     const apiUrl = `${this.baseurl}Nvwt41EYsSFQ5YyQ8wBC/comments?item_id=${test}`
     const getToApi = await fetch(apiUrl,{
       method: 'GET'
     })
@@ -133,7 +142,7 @@ export default class classes {
   }
   
   static getLikes = async()=> {
-    const apiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Nvwt41EYsSFQ5YyQ8wBC/likes'
+    const apiUrl = `${this.baseurl}Nvwt41EYsSFQ5YyQ8wBC/likes`
     const getToApi = await fetch(apiUrl,{
       method: 'GET'
     })

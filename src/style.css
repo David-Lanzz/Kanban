@@ -223,7 +223,7 @@ nav {
   .dish_container {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 20px;
     margin-top: 5%;
     padding-right: 50px;
