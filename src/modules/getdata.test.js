@@ -1,5 +1,6 @@
 const { getFoodItems } = require('./getdata.js');
 
+
 describe('getFoodItems', () => {
   it('returns an array of food items', async () => {
     const foodItems = await getFoodItems();
@@ -16,6 +17,7 @@ describe('getFoodItems', () => {
     foodItems.forEach((foodItem) => {
       expect(foodItem.idMeal).toBeDefined();
       expect(foodItem.strMeal).toBeDefined();
+
     });
   });
 });
