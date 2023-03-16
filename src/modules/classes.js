@@ -42,8 +42,8 @@ export default class classes {
           if (element.idMeal === e) {
             this.popupWindow.id = e;
             output = `<div class="x" id="${e}">
-  <div class="topx"></div>
-  <div class="bottomx"></div>
+  <div class="topx" id="x"></div>
+  <div class="bottomx" id="x"></div>
   </div>
   <section class="popup-meal-image">
   <img src="${element.strMealThumb}" alt="image"> 
@@ -77,8 +77,17 @@ export default class classes {
     const comments = await this.collectId(e);
     const filteredComments = comments.filter((element) => element.comment !== '');
     let output = '';
+    let i = 0;
     filteredComments.forEach((element) => {
-      output += `<li><span id="date">${element.creation_date}</span><span id="name">${element.username}</span><span id="comment">${element.comment}</span></li>`;
+      i += 1;
+      element.index = i;
+      if (element.index % 2 === 0) {
+        element.background = '#cfba9a';
+        element.color = '#333';
+      } else {
+        element.background = 'rgb(126, 49, 49)';
+      }
+      output += `<li style="background-color: ${element.background};color:${element.color}"><span id="date">${element.creation_date}</span><span id="name">${element.username}</span><span id="comment">${element.comment}</span></li>`;
     });
     commentSection.innerHTML = output;
   }
