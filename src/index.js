@@ -33,8 +33,8 @@ window.addEventListener('click', async (e) => {
     classes.fillDom();
   }
   if (e.target.id === 'love') {
-    await classes.addLikes(e.target.parentNode.parentNode.id)
-    classes.getLikes()
+    await classes.addLikes(e.target.parentNode.parentNode.id);
+    classes.getLikes();
     classes.fillDom();
   }
 });

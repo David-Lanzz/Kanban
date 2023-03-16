@@ -170,34 +170,9 @@ export default class classes {
     const likesArr = await test.json();
     return likesArr;
   }
-  static addLikes = async (e) => {
-    const apiUrl = `${this.baseurl}Nvwt41EYsSFQ5YyQ8wBC/likes`;
-    const likes = await this.getLikes();
-    let likesCount = '' 
-    likes.forEach(like => {
-      if(e === like.item_id){
-        likesCount = like.likes
-      }
-    })
-    const id = e
-    
-    const getToApi = await fetch(apiUrl, {
-      method: 'POST',
-      headers: {
-        'content-type':'application/json'
-      },
-      body: JSON.stringify({
-       item_id: `${id}`,
-       likes: `${likesCount +1}`
-      })
-    });
-    const test = getToApi;
-    const likesArr = await test.text();
-    return likesArr
-  }
 
   static addLikes = async (e) => {
-    const apiUrl = `${this.baseurl}/likes`;
+    const apiUrl = `${this.baseurl}Nvwt41EYsSFQ5YyQ8wBC/likes`;
     const likes = await this.getLikes();
     let likesCount = '';
     likes.forEach((like) => {
@@ -242,7 +217,6 @@ export default class classes {
                   <div class="likes">
                   <h4>${element.likesCount}</h4>
                   </div>
-              </div>
               </div>
               <button class="commentBtn" id="commentBtn">comments</button>
            </div>`;
