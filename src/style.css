@@ -129,18 +129,20 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  background-color: rgb(224, 72, 17);
   box-shadow: 1px 1px 1px rgb(240, 238, 238);
 }
 
 .logo {
-  font-size: 22px;
-  color: black;
+  font-size: 28px;
+  color: white;
   text-decoration: none;
 }
 
 .logo span {
-  color: rgb(224, 72, 17);
+  color: rgb(197, 194, 193);
   font-style: oblique;
+  font-size: 28px;
 }
 
 .nav_links {
@@ -151,8 +153,8 @@ nav {
 
 .nav_links a {
   text-decoration: none;
-  font-size: 18px;
-  color: black;
+  font-size: 19px;
+  color: white;
 }
 
 .heading {
@@ -160,12 +162,13 @@ nav {
   font-size: 28px;
   color: rgb(224, 72, 17);
   text-align: center;
+  box-shadow: 1px 1px 1px rgb(240, 238, 238);
 }
 
 .dish_container {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-top: 5%;
   padding-right: 24px;
@@ -189,14 +192,24 @@ nav {
     8px 64px 64px rgba(0, 0, 0, 0.15);
 }
 
+.dish_image {
+  overflow: hidden;
+}
+
 .dish_image img {
   width: 100%;
+  transition: 0.3s ease-in-out;
+}
+
+.dish_image img:hover {
+  transform: scale(1.05);
 }
 
 .dish_name {
   width: 100%;
   height: 6rem;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 18px;
 }
@@ -218,18 +231,29 @@ nav {
   border: none;
 }
 
-@media (min-width: 768px) {
+.commentBtn:hover {
+  background-color: rgb(143, 42, 6);
+}
+
+@media (max-width: 768px) {
   nav {
-    padding: 10px 100px;
+    padding: 24px 100px;
   }
 
   .dish_container {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     margin-top: 5%;
     padding-right: 50px;
     padding-left: 50px;
+  }
+
+  .heading {
+    margin-top: 2%;
+    font-size: 28px;
+    color: rgb(224, 72, 17);
+    text-align: center;
   }
 }

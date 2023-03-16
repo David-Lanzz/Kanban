@@ -4,10 +4,16 @@
   "description": "",
   "private": true,
   "scripts": {
-    "test": "jest",
+    "test": "jest --verbose",
     "start": "webpack serve --open",
     "build": "webpack"
   },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/David-Lanzz/Kanban.git"
@@ -20,7 +26,10 @@
   },
   "homepage": "https://github.com/David-Lanzz/Kanban#readme",
   "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^29.5.0",
     "css-loader": "^6.7.3",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
@@ -42,4 +51,5 @@
     "lodash": "^4.17.21"
   },
   "main": "webpack.config.js"
+  
 }

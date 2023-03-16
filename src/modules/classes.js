@@ -164,6 +164,31 @@ export default class classes {
     const likesArr = await test.json();
     return likesArr;
   }
+  static addLikes = async (e) => {
+    const apiUrl = `${this.baseurl}Nvwt41EYsSFQ5YyQ8wBC/likes`;
+    const likes = await this.getLikes();
+    let likesCount = '' 
+    likes.forEach(like => {
+      if(e === like.item_id){
+        likesCount = like.likes
+      }
+    })
+    const id = e
+    
+    const getToApi = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'content-type':'application/json'
+      },
+      body: JSON.stringify({
+       item_id: `${id}`,
+       likes: `${likesCount +1}`
+      })
+    });
+    const test = getToApi;
+    const likesArr = await test.text();
+    return likesArr
+  }
 
   static populateDom = async () => {
     let output = '';
@@ -181,11 +206,12 @@ export default class classes {
               </div>
               <div class="dish_name">
                   <h2>${element.strMeal}</h2>
-                  <i class="fa-regular fa-heart"></i>
-              </div>
-              <div class="likes">
+                  <i  id="love" class="fa-regular fa-heart"></i>
+                  <div class="likes">
                   <h4>${element.likesCount}</h4>
+                  </div>
               </div>
+              
               <button class="commentBtn" id="commentBtn">comments</button>
            </div>`;
     });
@@ -196,7 +222,4 @@ export default class classes {
     this.mealContainer.innerHTML = await this.populateDom();
   };
 
-  static addComment = (funct) => {
-
-  }
 }
