@@ -246,16 +246,6 @@ nav {
   box-shadow: 1px 1px 1px rgb(240, 238, 238);
 }
 
-.dish_container {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 16px;
-  margin-top: 5%;
-  padding-right: 24px;
-  padding-left: 24px;
-}
-
 .dish_wrapper {
   width: 100%;
   display: flex;
@@ -324,7 +314,6 @@ nav {
   .dish_container {
     display: grid;
     width: 100%;
-    display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 3rem 4%;
     margin-top: 5%;

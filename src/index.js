@@ -32,11 +32,7 @@ window.addEventListener('click', async (e) => {
     classes.getLikes();
     classes.fillDom();
   }
-  if (e.target.id === 'love') {
-    await classes.addLikes(e.target.parentNode.parentNode.id);
-    classes.getLikes();
-    classes.fillDom();
-  }
+  
 });
 const mealContainer = document.querySelector('#dish_container');
 

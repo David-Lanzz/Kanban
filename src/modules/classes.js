@@ -172,7 +172,7 @@ export default class classes {
   }
 
   static addLikes = async (e) => {
-    const apiUrl = `${this.baseurl}Nvwt41EYsSFQ5YyQ8wBC/likes`;
+    const apiUrl = `${this.baseurl}/likes`;
     const likes = await this.getLikes();
     let likesCount = '';
     likes.forEach((like) => {
