@@ -229,7 +229,7 @@ nav {
 .nav_links {
   display: flex;
   list-style: none;
-  gap: 12px;
+  gap: 14px;
 }
 
 .nav_links a {
@@ -240,7 +240,7 @@ nav {
 
 .heading {
   margin-top: 5%;
-  font-size: 28px;
+  font-size: 30px;
   color: rgb(224, 72, 17);
   text-align: center;
   box-shadow: 1px 1px 1px rgb(240, 238, 238);
