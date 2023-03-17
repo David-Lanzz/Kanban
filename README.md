@@ -92,7 +92,7 @@ Meals app is an app that consumes apis to show a list of meals.Users can also le
 
 - [Presantation video](https://drive.google.com/file/d/1CZQkqPz6U549uw6X5-sNQWyNlGa-vfVU/view?usp=share_link)
 
-- [Live Demo Link]()
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
