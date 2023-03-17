@@ -1,6 +1,3 @@
-// all methods
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-loop-func */
 export default class classes {
     static popupWindow = document.querySelector('#popup-window')
 
@@ -111,26 +108,6 @@ export default class classes {
       array.push(element.idMeal);
     });
     return array;
-  }
-
-  static postLikes = async () => {
-    const array = await this.getMealsId();
-    let getToApi = '';
-    for (let i = 0; i < array.length; i += 1) {
-      setInterval(() => {
-        getToApi = fetch(`${this.baseurl}/likes`, {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json',
-          },
-          body: JSON.stringify({
-            item_id: `${array[i]}`,
-          }),
-        });
-
-        getToApi.then((res) => res.text());
-      }, 100);
-    }
   }
 
   static collectId = async (e) => {
