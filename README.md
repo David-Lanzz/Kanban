@@ -94,6 +94,7 @@ Meals app is an app that consumes apis to show a list of meals.Users can also le
 -[Live Demo Link](https://david-lanzz.github.io/Kanban/dist/)
 
 - [Presantation video](https://drive.google.com/file/d/1CZQkqPz6U549uw6X5-sNQWyNlGa-vfVU/view?usp=share_link)
+- [project](https://github.com/David-Lanzz/Kanban/projects/1)
 
 
 
