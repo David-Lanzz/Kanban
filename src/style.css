@@ -125,6 +125,7 @@ li {
   background-color: #fff;
   padding: 0.5rem 0;
   border-radius: 0.5rem;
+  font-size: 0.6rem;
 }
 
 .add-comment {
@@ -145,6 +146,7 @@ textarea {
   background-color: #bba27e;
   padding: 0.5rem;
   border-radius: 0.3rem;
+  color: #fff;
 }
 
 input::placeholder,
@@ -177,6 +179,7 @@ textarea::placeholder {
   }
 
   .comments-section {
+    font-size: 0.8rem;
     align-items: flex-start;
     width: 70%;
   }
