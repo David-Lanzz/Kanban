@@ -32,7 +32,6 @@ window.addEventListener('click', async (e) => {
     classes.getLikes();
     classes.fillDom();
   }
-  
 });
 const mealContainer = document.querySelector('#dish_container');
 
