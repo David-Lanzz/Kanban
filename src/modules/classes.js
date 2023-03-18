@@ -1,6 +1,3 @@
-// all methods
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-loop-func */
 export default class classes {
     static popupWindow = document.querySelector('#popup-window')
 
@@ -31,6 +28,7 @@ export default class classes {
       const arrayItem = await this.getFoodItems();
       let output = '';
       const comments = await this.collectId(e);
+      const filteredComments = comments.filter((element) => element.comment !== '');
       arrayItem.forEach((element) => {
         if (element.idMeal === e) {
           this.popupWindow.id = e;
@@ -46,7 +44,7 @@ export default class classes {
   <ul class="additional-information">
   <li><div class="right">Fuel:</div><div>Length:</div></li>
   <li><div class="right">Weight:</div><div>Power:</div></li>
-  </ul><h4>Comments (<span id="number-of-comments">${comments.length}
+  </ul><h4>Comments (<span id="number-of-comments">${filteredComments.length}
   
   </span>)</h4>
   <ul class="comments-section" id='comments-section'>
@@ -69,6 +67,7 @@ export default class classes {
     const filteredComments = comments.filter((element) => element.comment !== '');
     let output = '';
     let i = 0;
+    document.getElementById('#number-of-comments').innerHTML = `(${filteredComments.length})`;
     filteredComments.forEach((element) => {
       i += 1;
       element.index = i;
@@ -102,25 +101,6 @@ export default class classes {
       array.push(element.idMeal);
     });
     return array;
-  }
-
-  static postLikes = async () => {
-    const array = await this.getMealsId();
-    let getToApi = '';
-    for (let i = 0; i < array.length; i += 1) {
-      setInterval(() => {
-        getToApi = fetch(`${this.baseurl}/likes`, {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json',
-          },
-          body: JSON.stringify({
-            item_id: `${array[i]}`,
-          }),
-        });
-        getToApi.then((res) => res.text());
-      }, 100);
-    }
   }
 
     static collectId = async (e) => {
