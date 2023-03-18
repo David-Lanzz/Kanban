@@ -67,7 +67,7 @@ export default class classes {
     const filteredComments = comments.filter((element) => element.comment !== '');
     let output = '';
     let i = 0;
-    document.getElementById('#number-of-comments').innerHTML = `(${filteredComments.length})`;
+    document.querySelector('#number-of-comments').innerHTML = `(${filteredComments.length})`;
     filteredComments.forEach((element) => {
       i += 1;
       element.index = i;
