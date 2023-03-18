@@ -257,7 +257,9 @@ I would like to thank  Microverse and my studying partner
 
   - Yes
 
-- **[Did you run all the tests]**
+
+- **[Did you run all the tests**
+
 
   - Yes
 
