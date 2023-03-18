@@ -122,6 +122,7 @@ export default class classes {
     return array;
   }
 
+
     static collectId = async (e) => {
       const test = await this.popupId(e);
       const apiUrl = `${this.baseurl}/comments?item_id=${test}`;
@@ -133,6 +134,7 @@ export default class classes {
       });
       return result1;
     }
+
 
   static addCommentToApi = async (e) => {
     const test = await this.popupId(e);
