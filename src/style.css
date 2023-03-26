@@ -44,6 +44,7 @@ h4 {
   top: 50%;
   left: 40%;
   animation: rotate 2s infinite;
+  opacity: 70%;
 }
 
 @keyframes rotate {
