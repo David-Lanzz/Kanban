@@ -1,7 +1,7 @@
 
 
 <a name="readme-top"></a>
-
+<img src='./src/images/myLogo.png'>
 
 
 <div align="center">
@@ -48,10 +48,11 @@ Meals app is an app that consumes apis to show a list of meals.Users can also le
 
 
 
-## 🛠 Built With  VSCode  <a name="Built With VSCode"></a>
+## 🛠 Built With  VSCode 
 
-### HTML/CSS, javascript <a name="tech-stack"></a>
+<a name="tech-stack"></a>
 
+## Tech Stack
 >
 
 <details>
@@ -70,7 +71,9 @@ Meals app is an app that consumes apis to show a list of meals.Users can also le
 
 <details>
 <summary>functionality</summary>
- 
+  <ul>
+    <li><a href="https://cdnjs.com//">Javascript</a></li>
+  </ul>
 </details>
 
 
@@ -78,9 +81,10 @@ Meals app is an app that consumes apis to show a list of meals.Users can also le
 ### Key Features <a name="key-features"></a>
 
 
-
 - **Webpack**
 - **APIs**
+- **Engagement(Likes and comments)**
+- **Popup window smart selection**
 - **Javascript unit testing(Jest)**
 
 
@@ -136,17 +140,11 @@ Clone this repository to your desired folder:
 
 Install this project with:
 
-<!--
-Example command:
+cd [name of project]
 
-```sh
-  cd my-project
-  gem install
-  gh repo clone Tafloninno/First_capstone_project
-  cd capstone_project
-  npm install -y
-```
---->
+npm install
+
+npm start
 
 
 
@@ -192,7 +190,7 @@ To run tests, run the following command:
 
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/mugisha-innocent-19b700238/)
 
-👤 **David.L**
+👤 **David.Olanrewaju**
 
 - GitHub: [@githubhandle](https://github.com/David-Lanzz)
 
@@ -207,7 +205,7 @@ To run tests, run the following command:
 
 > I'll add the following section to the webpage.
 
-- [ ] **Add UI design**
+- [ ] **D ifferent loading state**
 - [ ] **Add Functionality**
 
 
@@ -239,8 +237,6 @@ If you like this project... Kindly leave a star ⭐
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
 I would like to thank  Microverse and my studying partner
 
 
@@ -258,7 +254,7 @@ I would like to thank  Microverse and my studying partner
   - Yes
 
 
-- **[Did you run all the tests**
+- **Did you run all the tests**
 
 
   - Yes
