@@ -272,6 +272,10 @@ nav {
   box-shadow: 1px 1px 1px rgb(240, 238, 238);
 }
 
+img {
+  border-bottom-right-radius: 3rem;
+}
+
 .logo {
   font-size: 28px;
   color: white;
@@ -286,9 +290,6 @@ nav {
   margin-top: 5%;
   padding-right: 24px;
   padding-left: 24px;
-}
-img {
-  border-bottom-right-radius: 3rem;
 }
 
 .logo span {
