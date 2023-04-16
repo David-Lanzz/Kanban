@@ -229,6 +229,10 @@ textarea::placeholder {
     flex-direction: row;
   }
 
+  img {
+    border-bottom-right-radius: 3rem;
+  }
+
   .popup-meal-image {
     width: 100%;
     height: 20rem;
@@ -270,10 +274,6 @@ nav {
   padding: 10px 20px;
   background-color: rgb(224, 72, 17);
   box-shadow: 1px 1px 1px rgb(240, 238, 238);
-}
-
-img {
-  border-bottom-right-radius: 3rem;
 }
 
 .logo {
