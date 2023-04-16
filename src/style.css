@@ -19,6 +19,47 @@ h4 {
   margin: 0.5rem 0;
 }
 
+.loadingpage {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: fixed;
+  z-index: 10;
+  display: none;
+}
+
+.loaderIcon {
+  height: 4rem;
+  width: 4rem;
+  background: transparent;
+  position: inherit;
+  z-index: inherit;
+  border: solid 17px #fff;
+  border-top: solid #cfba9a 17px;
+  border-bottom: solid #cfba9a 17px;
+  border-right: solid 17px brown;
+  border-left: solid 17px brown;
+  border-radius: 50%;
+  top: 50%;
+  left: 40%;
+  animation: rotate 2s infinite;
+  opacity: 70%;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+    width: 5rem;
+    height: 5rem;
+    border: solid 22px #fff;
+    border-top: solid #cfba9a 22px;
+    border-bottom: solid #cfba9a 22px;
+    border-right: solid 22px brown;
+    border-left: solid 22px brown;
+  }
+}
+
 .x {
   display: flex;
   flex-direction: column;
@@ -74,13 +115,13 @@ li {
 .popup-meal-image {
   height: 13rem;
   width: 92%;
-  border: solid 1px #333;
   margin: 0 auto;
 }
 
 .popup-meal-image img {
   width: 100%;
   height: 100%;
+  border-top-left-radius: 3rem;
 }
 
 .additional-information {
@@ -188,6 +229,10 @@ textarea::placeholder {
     flex-direction: row;
   }
 
+  img {
+    border-bottom-right-radius: 3rem;
+  }
+
   .popup-meal-image {
     width: 100%;
     height: 20rem;
@@ -195,6 +240,30 @@ textarea::placeholder {
 
   .x {
     right: 5%;
+  }
+
+  .loaderIcon {
+    height: 10rem;
+    width: 10rem;
+    border: solid 30px #fff;
+    border-top: solid #cfba9a 30px;
+    border-bottom: solid #cfba9a 30px;
+    border-right: solid 30px brown;
+    border-left: solid 30px brown;
+    left: 47%;
+  }
+
+  @keyframes rotate {
+    to {
+      width: 7rem;
+      height: 7rem;
+      transform: rotate(360deg);
+      border: solid 26px #fff;
+      border-top: solid #cfba9a 26px;
+      border-bottom: solid #cfba9a 26px;
+      border-right: solid 26px brown;
+      border-left: solid 26px brown;
+    }
   }
 }
 
@@ -268,6 +337,7 @@ nav {
 
 .dish_image {
   overflow: hidden;
+  height: 80%;
 }
 
 .dish_image img {
@@ -311,7 +381,7 @@ nav {
   }
 
   .dish_name h2 {
-    font-size: 12.5px;
+    font-size: 12px;
   }
 
   .dish_container {

@@ -3,6 +3,10 @@ export default class classes {
 
   static baseurl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/WcPR52P9C9b3ZbPg6GHe'
 
+static loading = false
+
+static loadingPage = document.querySelector('.loadingpage')
+
     static getInvolvementApi = async () => {
       const apiUrl = `${this.baseurl}/likes`;
       const getUrl = fetch(apiUrl, {
@@ -10,6 +14,7 @@ export default class classes {
       });
       const getItems = await getUrl;
       const test = await getItems.json();
+
       return test;
     }
 
@@ -83,6 +88,9 @@ export default class classes {
 
   static getComments = async (e) => {
     const comments = await this.collectId(e);
+
+    this.loadingPage.style.display = 'none';
+
     const filteredComments = comments.filter((element) => element.comment !== '');
     let output = '';
     let i = 0;
@@ -104,6 +112,7 @@ export default class classes {
   static mealContainer = document.querySelector('#dish_container');
 
   static getFoodItems = async () => {
+    this.loadingPage.style.display = 'block';
     const Url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef';
     const getUrl = fetch(Url, {
       method: 'GET',
@@ -123,6 +132,8 @@ export default class classes {
   }
 
     static collectId = async (e) => {
+      this.loadingPage.style.display = 'block';
+
       const test = await this.popupId(e);
       const apiUrl = `${this.baseurl}/comments?item_id=${test}`;
       const result1 = fetch(apiUrl).then((response) => {
@@ -131,6 +142,7 @@ export default class classes {
         }
         return [];
       });
+
       return result1;
     }
 
@@ -150,10 +162,13 @@ export default class classes {
     const likesArr = await test2.text();
     document.querySelector('#nameInput').value = '';
     document.querySelector('#new-comment').value = '';
+
     return likesArr;
   }
 
   static getLikes = async () => {
+    this.loadingPage.style.display = 'block';
+
     const apiUrl = `${this.baseurl}/likes`;
     const getToApi = await fetch(apiUrl, {
       method: 'GET',
@@ -186,6 +201,7 @@ export default class classes {
     });
     const test = getToApi;
     const likesArr = await test.text();
+
     return likesArr;
   }
 
@@ -193,6 +209,9 @@ export default class classes {
     let output = '';
     const mealsArr = await this.getFoodItems();
     const likes = await this.getLikes();
+
+    this.loadingPage.style.display = 'none';
+
     mealsArr.forEach((element) => {
       likes.forEach((elementLikes) => {
         if (element.idMeal === elementLikes.item_id) {
