@@ -112,6 +112,10 @@ li {
   list-style: none;
 }
 
+img {
+  border-bottom-right-radius: 3rem;
+}
+
 .popup-meal-image {
   height: 13rem;
   width: 92%;
@@ -227,10 +231,6 @@ textarea::placeholder {
 
   .comments-section li {
     flex-direction: row;
-  }
-
-  img {
-    border-bottom-right-radius: 3rem;
   }
 
   .popup-meal-image {
